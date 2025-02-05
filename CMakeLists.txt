@@ -35,7 +35,13 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Zsx Zsx.c )
+add_executable(Zsx 
+        Zsx.c
+        src/ModbusComms.c
+        src/comms.c 
+        src/DynamentComms.c 
+        src/halgpio.c  
+        )
 
 pico_set_program_name(Zsx "Zsx")
 pico_set_program_version(Zsx "0.1")
@@ -54,9 +60,27 @@ target_include_directories(Zsx PRIVATE
 )
 
 # Add any user requested libraries
-target_link_libraries(Zsx 
+
+target_link_libraries(Zsx
+        pico_stdlib
+        hardware_adc
+        hardware_dma
+        hardware_i2c
+        hardware_pio
+        hardware_spi
+        hardware_watchdog
+        hardware_uart
+        hardware_irq
+        hardware_sync
         pico_cyw43_arch_none
         )
-
 pico_add_extra_outputs(Zsx)
 
+        
+# create map/bin/hex file etc.
+#pico_add_extra_outputs(Zsx)
+pico_add_uf2_output(Zsx)
+
+include_directories(
+	../inc
+	)

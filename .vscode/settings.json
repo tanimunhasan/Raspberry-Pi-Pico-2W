@@ -37,6 +37,14 @@
     "raspberry-pi-pico.cmakePath": "${HOME}/.pico-sdk/cmake/v3.29.9/bin/cmake",
     "raspberry-pi-pico.ninjaPath": "${HOME}/.pico-sdk/ninja/v1.12.1/ninja",
     "files.associations": {
-        "uart.h": "c"
+        "uart.h": "c",
+        "binary_info.h": "c",
+        "spi.h": "c",
+        "watchdog.h": "c",
+        "halgpio.h": "c",
+        "cyw43_arch.h": "c",
+        "modbuscomms.h": "c",
+        "string.h": "c",
+        "i2c.h": "c"
     }
 }
